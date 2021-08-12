@@ -12,15 +12,15 @@ function fib(n) {
 	let x = 0;
 	let y = 1;
 	let res;
-	let seq = n;
+	// let seq = n;
 
 	if (n === 0) return 0;
 	if (n === 1) return 1;
-	while (seq > 1) {
+	while (n > 1) {
 		res = x + y;
 		x = y;
 		y = res;
-		seq--;
+		n--;
 	}
 	return res;
 }
