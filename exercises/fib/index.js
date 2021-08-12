@@ -8,21 +8,34 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {
-	let x = 0;
-	let y = 1;
-	let res;
-	// let seq = n;
+const cache = {};
 
-	if (n === 0) return 0;
-	if (n === 1) return 1;
-	while (n > 1) {
-		res = x + y;
-		x = y;
-		y = res;
-		n--;
+function fib(n) {
+	if (n < 2) return n;
+	if (cache[n]) return cache[n];
+	if (!cache[n]) {
+		const result = fib(n - 1) + fib(n - 2);
+		cache[n] = result;
+		return result;
 	}
-	return res;
+
+	// return fib(n - 1) + fib(n - 2);
 }
+
+// function fib(n) {
+// 	let x = 0;
+// 	let y = 1;
+// 	let res;
+// 	// let seq = n;
+
+// 	if (n < 2) return n;
+// 	while (n > 1) {
+// 		res = x + y;
+// 		x = y;
+// 		y = res;
+// 		n--;
+// 	}
+// 	return res;
+// }
 
 module.exports = fib;
